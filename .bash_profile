@@ -48,3 +48,48 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+#shell
+export PS1="\W$ "
+export BASH_SILENCE_DEPRECATION_WARNING=1
+export SHELL=/bin/bash
+
+#docker
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+#ccache
+export PATH=":/opt/homebrew/opt/ccache/libexec:$PATH"
+export CC="ccache gcc"
+export CXX="ccache g++"
+
+#brew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+#hub
+eval "$(hub alias -s)"
+
+#curl
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+
+#nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+#bmux
+bt_vpn () {
+  which sshuttle >/dev/null || {
+    echo "sshuttle must be installed!"
+    echo "use an apropriate package manager to install it:"
+    echo " apt-get | brew install sshuttle...or so..."
+    return 1;
+  }
+  echo "# Note: this helper only works with remote linux hosts that has the \"ip\" command installed."
+  echo "# Select a subnet you wish to connect to:"
+  sshuttle -vr ${1%.bmux}.bmux $(
+    select net in $(ssh ${1%.bmux}.bmux ip r | grep -Ev "docker|default" | cut -d" " -f1) ;
+      do echo $net; break ; done
+  );
+}
+
+export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
+export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH"
