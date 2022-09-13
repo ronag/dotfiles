@@ -62,7 +62,8 @@ export CC="ccache gcc"
 export CXX="ccache g++"
 
 #python
-alias python=/usr/local/bin/python3
+unlink /usr/local/bin/python
+ln -s $(which python3) /usr/local/bin/python
 
 #brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
