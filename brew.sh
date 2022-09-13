@@ -41,6 +41,7 @@ brew install ffmpeg
 brew install hub
 brew install exiftool
 brew install webp
+brew install python
 
 # Remove outdated versions from the cellar.
 brew cleanup

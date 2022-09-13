@@ -61,6 +61,9 @@ export PATH=":/opt/homebrew/opt/ccache/libexec:$PATH"
 export CC="ccache gcc"
 export CXX="ccache g++"
 
+#python
+alias python=/usr/local/bin/python3
+
 #brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
