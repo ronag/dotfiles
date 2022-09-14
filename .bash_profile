@@ -62,8 +62,8 @@ export CC="ccache gcc"
 export CXX="ccache g++"
 
 #python
-unlink /usr/local/bin/python
-ln -s $(which python3) /usr/local/bin/python
+# unlink /usr/local/bin/python
+# ln -s $(which python3) /usr/local/bin/python
 
 #git
 
