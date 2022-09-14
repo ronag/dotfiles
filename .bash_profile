@@ -65,6 +65,15 @@ export CXX="ccache g++"
 unlink /usr/local/bin/python
 ln -s $(which python3) /usr/local/bin/python
 
+#git
+
+GIT_AUTHOR_NAME="Robert Nagy"
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+git config --global user.name "$GIT_AUTHOR_NAME"
+GIT_AUTHOR_EMAIL="ronagy@icloud.com"
+GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+git config --global user.email "$GIT_AUTHOR_EMAIL"
+
 #brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -96,12 +105,3 @@ bt_vpn () {
 
 export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
 export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH"
-
-#git
-
-GIT_AUTHOR_NAME="Robert Nagy"
-GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="ronagy@icloud.com"
-GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
-git config --global user.email "$GIT_AUTHOR_EMAIL"
