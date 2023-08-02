@@ -32,25 +32,28 @@ if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
   chsh -s "${BREW_PREFIX}/bin/bash";
 fi;
 
-# nxt
-brew install curl-openssl zstd pkg-config cairo libpng jpeg giflib exiftool
-brew tap homebrew-ffmpeg/ffmpeg
-brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-webp
-
 # font
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 
-# Install more recent versions of some macOS tools.
 brew install grep
-
+brew install curl-openssl
+brew install zstd
+brew install pkg-config
+brew install cairo
+brew install libpng
+brew install jpeg
+brew install giflib
 brew install yarn
 brew install ccache
-brew install ffmpeg
 brew install hub
 brew install exiftool
 brew install webp
 brew install python
+
+# ffmpeg
+brew tap homebrew-ffmpeg/ffmpeg
+brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-webp
 
 # Remove outdated versions from the cellar.
 brew cleanup
