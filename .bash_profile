@@ -4,7 +4,7 @@ export PATH="$HOME/bin:$PATH";
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,aliases,functions}; do
+for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -66,7 +66,6 @@ export CXX="ccache g++"
 # ln -s $(which python3) /usr/local/bin/python
 
 #git
-
 GIT_AUTHOR_NAME="Robert Nagy"
 GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 git config --global user.name "$GIT_AUTHOR_NAME"
@@ -76,9 +75,6 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 
 #brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-#hub
-eval "$(hub alias -s)"
 
 #curl
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
@@ -105,3 +101,4 @@ bt_vpn () {
 
 export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
 export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
